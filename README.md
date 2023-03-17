@@ -1,42 +1,55 @@
-# Early Stopping for Deep Image Prior
+# Test Early Stopping for Deep Image Prior with architectural changes and for CT reconstruction
 
-This is the official implementation of our paper [*Early Stopping for Deep Image Prior*](https://arxiv.org/pdf/2112.06074.pdf).
+This is a fork of the official implementation of the paper [*Early Stopping for Deep Image Prior*](https://arxiv.org/pdf/2112.06074.pdf).
 
 
-## Dependencies
+While experimenting with the [Subspace-DIP](https://github.com/anonsubdip/subspace_dip) for CT reconstruction, we had difficulties to use the variance-based early stopping criterion proposed in above work. In order to identify changes that could potentially hinder this criterion to be effective in our scenarios.
 
-```
-conda env create -f environment.yml
-conda activate early-stopping
-```
+Differences between our scenarios in [Subspace-DIP](https://github.com/anonsubdip/subspace_dip) and the setup in [*Early Stopping for Deep Image Prior*](https://arxiv.org/pdf/2112.06074.pdf) include:
 
-## Google Colab
+* Our network uses GroupNorm instead of BatchNorm
+* Our network does *not* include a sigmoid activation on the output
+* We consider CT reconstruction problems, so our forward operator is a ray transform instead of the identity operator
 
-Google Colab contains all the dependencies our algorithms need. Thus, you are able to run our code directly on Google Colab. Moreover, we recommend you to access the dataset above via Google Drive. After uploading the dataset, you can run DIP with ES-WMV in ES-WMV.ipynb and DIP with ES-EMV in ES-EMV.ipynb, respectively.
+The plots below show results when changing a single or multiple of these aspects.
 
-## Dataset
+# Denoising (identity operator)
 
-We provide a ready-to-use dataset under the folder `/Dataset` where there are 4 types of noises we used in our paper where "XXX_2" indicates "low noise level", "XXX_3" indicates "medium noise level", and "XXX_4" indicates "high noise level".
+## Original [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV.ipynb">ES_WMV.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/225988132-0d3ae5eb-7930-4bec-9235-efe94fce452a.png" alt="my alt text"/>
+</figure>
 
-Alternatively, you can also create the dataset by yourself. The clean images can be downloaded [here](https://webpages.tuni.fi/foi/GCF-BM3D/index.html#ref_results). After you have the clean images, you can follow the [ImageNet-C protocol](https://github.com/hendrycks/robustness) (or write corruption functions by yourself) to create the corrupted images. For the parameters for each noise level, please check the Appendix of [our paper](https://arxiv.org/pdf/2112.06074.pdf).
+## Without sigmoid output [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-no_sigmoid.ipynb">ES_WMV-no_sigmoid.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/225988666-6dbb9307-fb1e-4d58-ab93-c18bf18cb0ab.png" alt="my alt text"/>
+</figure>
 
-## Citation/BibTex
+## Using GroupNorm [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-GN.ipynb">ES_WMV-GN.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/225988961-40229642-0beb-4cce-b177-6c48b9700ab4.png" alt="my alt text"/>
+</figure>
 
-```
-@misc{wang2021early,
-      title={Early Stopping for Deep Image Prior}, 
-      author={Hengkang Wang and Taihui Li and Zhong Zhuang and Tiancong Chen and Hengyue Liang and Ju Sun},
-      year={2021},
-      eprint={2112.06074},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
-## Contact
+# Low-dose CT reconstruction (ray transform with many angles and high noise)
 
-- Hengkang Wang, wang9881@umn.edu, [https://scholar.google.com/citations?hl=en&user=APqDZvUAAAAJ](https://scholar.google.com/citations?hl=en&user=APqDZvUAAAAJ)
-- Taihui Li, lixx5027@umn.edu, [https://taihui.github.io/](https://taihui.github.io/)
-- Zhong Zhuang, zhuan143@umn.edu, [https://scholar.google.com/citations?user=rGGxUQEAAAAJ](https://scholar.google.com/citations?user=rGGxUQEAAAAJ)
-- Tiancong Chen, chen6271@umn.edu, [https://sites.google.com/view/tiancong-chen](https://sites.google.com/view/tiancong-chen)
-- Hengyue Liang, liang656@umn.edu, [https://hengyuel.github.io/](https://hengyuel.github.io/)
-- Ju Sun, jusun@umn.edu, [https://sunju.org/](https://sunju.org/)
+## Original [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-low_dose.ipynb">ES_WMV-CT-low_dose.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/225989724-1ab895f4-aa99-490b-92fa-a2a3d25a0d14.png" alt="my alt text"/>
+</figure>
+
+## Without sigmoid output [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-low_dose-no_sigmoid.ipynb">ES_WMV-CT-low_dose-no_sigmoid.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/225989742-341dd752-d2f8-467e-bfe2-d615137db8fb.png" alt="my alt text"/>
+</figure>
+
+# Sparse-view CT reconstruction (ray transform with few angles and moderate noise)
+
+## Original [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view.ipynb">ES_WMV-CT-sparse_view.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/225990332-78db9893-cf39-4211-9c7e-09791d3bc611.png" alt="my alt text"/>
+</figure>
+
+## Without sigmoid output [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view-no_sigmoid.ipynb">ES_WMV-CT-sparse_view-no_sigmoid.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/225990344-668f6acf-1c64-44d0-84d1-c92ac6c6967c.png" alt="my alt text"/>
+</figure>
