@@ -42,6 +42,11 @@ The plots below show results when changing a single or multiple of these aspects
   <img src="https://user-images.githubusercontent.com/123627605/225989742-341dd752-d2f8-467e-bfe2-d615137db8fb.png" alt="my alt text"/>
 </figure>
 
+## Using GroupNorm [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-low_dose-GN.ipynb">ES_WMV-CT-low_dose-GN.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/226168947-3626683f-27f8-42b2-8669-586eee1d90aa.png" alt="my alt text"/>
+</figure>
+
 ## Without sigmoid output, using GroupNorm [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-low_dose-no_sigmoid-GN.ipynb">ES_WMV-CT-low_dose-no_sigmoid-GN.ipynb</a>]
 <figure>
   <img src="https://user-images.githubusercontent.com/123627605/226112063-05a0d750-7b92-4638-8041-ee1b159e1a15.png" alt="my alt text"/>
@@ -57,6 +62,11 @@ The plots below show results when changing a single or multiple of these aspects
 ## Without sigmoid output [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view-no_sigmoid.ipynb">ES_WMV-CT-sparse_view-no_sigmoid.ipynb</a>]
 <figure>
   <img src="https://user-images.githubusercontent.com/123627605/225990344-668f6acf-1c64-44d0-84d1-c92ac6c6967c.png" alt="my alt text"/>
+</figure>
+
+## Using GroupNorm [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view-GN.ipynb">ES_WMV-CT-sparse_view-GN.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/226168980-8e4ca027-4c0a-4219-b73c-71c20882f48b.png" alt="my alt text"/>
 </figure>
 
 ## Without sigmoid output, using GroupNorm [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view-no_sigmoid-GN.ipynb">ES_WMV-CT-sparse_view-no_sigmoid-GN.ipynb</a>]
