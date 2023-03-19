@@ -15,7 +15,7 @@ The plots below show results when changing a single or multiple of these aspects
 
 # Denoising (identity operator)
 
-## Original [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV.ipynb">ES_WMV.ipynb</a>]
+## Original architecture [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV.ipynb">ES_WMV.ipynb</a>]
 <figure>
   <img src="https://user-images.githubusercontent.com/123627605/225988132-0d3ae5eb-7930-4bec-9235-efe94fce452a.png" alt="my alt text"/>
 </figure>
@@ -32,7 +32,7 @@ The plots below show results when changing a single or multiple of these aspects
 
 # Low-dose CT reconstruction (ray transform with many angles and high noise)
 
-## Original [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-low_dose.ipynb">ES_WMV-CT-low_dose.ipynb</a>]
+## Original architecture [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-low_dose.ipynb">ES_WMV-CT-low_dose.ipynb</a>]
 <figure>
   <img src="https://user-images.githubusercontent.com/123627605/225989724-1ab895f4-aa99-490b-92fa-a2a3d25a0d14.png" alt="my alt text"/>
 </figure>
@@ -54,7 +54,7 @@ The plots below show results when changing a single or multiple of these aspects
 
 # Sparse-view CT reconstruction (ray transform with few angles and moderate noise)
 
-## Original [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view.ipynb">ES_WMV-CT-sparse_view.ipynb</a>]
+## Original architecture [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view.ipynb">ES_WMV-CT-sparse_view.ipynb</a>]
 <figure>
   <img src="https://user-images.githubusercontent.com/123627605/225990332-78db9893-cf39-4211-9c7e-09791d3bc611.png" alt="my alt text"/>
 </figure>
@@ -72,4 +72,12 @@ The plots below show results when changing a single or multiple of these aspects
 ## Without sigmoid output, using GroupNorm [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view-no_sigmoid-GN.ipynb">ES_WMV-CT-sparse_view-no_sigmoid-GN.ipynb</a>]
 <figure>
   <img src="https://user-images.githubusercontent.com/123627605/226112089-18fdc325-a58e-4674-8a26-d08dc4f847f2.png" alt="my alt text"/>
+</figure>
+
+
+# Sparse-view and super-resolution CT (ray transform with few angles, subsampled detector pixels (6x) and moderate noise)
+
+## Original architecture [<a href="https://github.com/anonsubdip/Early_Stopping_for_DIP/blob/main/ES_WMV-CT-sparse_view_super_res.ipynb">ES_WMV-CT-sparse_view_super_res.ipynb</a>]
+<figure>
+  <img src="https://user-images.githubusercontent.com/123627605/226180913-8a1a9aeb-3351-4d03-b2fc-cca2b86278f8.png" alt="my alt text"/>
 </figure>
